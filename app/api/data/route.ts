@@ -20,4 +20,19 @@ export const POST = async (req : Request, res : Response) => {
     } catch (error) {
       return new Response("Failed to add Data to Database", { status: 500 });
     }
-  };
+};
+export const GET = async (req : Request, res : Response) => {
+    const body = await req.json();
+    const { tags } = body;
+    try {
+      await connectToDB();
+      
+      const fetchedData = await Data.find({ tags });
+  
+      
+  
+      return new Response(JSON.stringify(fetchedData), { status: 201 });
+    } catch (error) {
+      return new Response("Failed to add Data to Database", { status: 500 });
+    }
+};
