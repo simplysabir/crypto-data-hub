@@ -5,7 +5,7 @@ const DataSchema = new Schema({
         required : true,
     },
     tags: {
-        type : String,
+        type : Array<String>,
         enum : [
             'DAO',
             'NFT',
@@ -23,5 +23,5 @@ const DataSchema = new Schema({
     }
 })
 
-const DataModel = models.DataModel || model('Data', DataSchema);
-export default DataModel;
+const Data = models.DataModel || model('Data', DataSchema);
+export default Data;
