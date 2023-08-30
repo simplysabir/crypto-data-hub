@@ -11,7 +11,7 @@ export const connectToDB = async () => {
     }
 
     try {
-        await mongoose.connect("mongodb://127.0.0.1:27017/", {
+        await mongoose.connect("mongodb+srv://simplysabir:vGk9b6kl0jo8E6CD@cluster0.6g190mr.mongodb.net/?retryWrites=true&w=majority", {
             dbName: "crypto-data-hub",
         });
 

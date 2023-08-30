@@ -22,17 +22,19 @@ export const POST = async (req : Request, res : Response) => {
     }
 };
 export const GET = async (req : Request, res : Response) => {
-    const body = await req.json();
-    const { tags } = body;
+
+    const { searchParams } = await req.json();
+    const tags = searchParams.get("tags");
+    console.log(tags);
     try {
       await connectToDB();
       
-      const fetchedData = await Data.find({ tags });
+      const fetchedData = await Data.find({ tags : tags });
   
       
   
       return new Response(JSON.stringify(fetchedData), { status: 201 });
     } catch (error) {
-      return new Response("Failed to add Data to Database", { status: 500 });
+      return new Response("Failed to Fetch Data From Database", { status: 500 });
     }
 };

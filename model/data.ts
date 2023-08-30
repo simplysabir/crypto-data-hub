@@ -5,13 +5,9 @@ const DataSchema = new Schema({
         required : true,
     },
     tags: {
-        type : Array<String>,
-        enum : [
-            'DAO',
-            'NFT',
-            'MetaVerse',
-        ],
-        required : true,
+        type: [String],  // Use [String] instead of Array<String>
+        enum: ['DAO', 'NFT', 'MetaVerse'], // List allowed values directly as strings
+        required: true,
     },
     description : {
         type : String,
@@ -23,5 +19,5 @@ const DataSchema = new Schema({
     }
 })
 
-const Data = models.DataModel || model('Data', DataSchema);
+const Data = models.Data || model('Data', DataSchema);
 export default Data;
