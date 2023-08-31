@@ -9,11 +9,13 @@ const Hero = () => {
   async function handleSubmit(e: any) {
     e.preventDefault();
     console.log(keyword);
-    const queryParams = new URLSearchParams({
-      tags: keyword,
-    });
-    const response = await axios.get(`/api/data/?${queryParams}`);
+    // const queryParams = new URLSearchParams({
+    //   tags: keyword,
+    // });
+    const response = await axios.get(`/api/data/`, { params: { tags: keyword } });
+    // const data = await response.json();
     console.log(response);
+    
     if (response.status === 201) {
       console.log("fetched succesfully");
     }
