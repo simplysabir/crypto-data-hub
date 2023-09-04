@@ -28,12 +28,12 @@ export const GET = async (req : NextApiRequest, res : NextApiResponse) => {
     const mainUrl : URL = new URL(url);
     const searchParams = mainUrl.searchParams;
     const tags = searchParams.get("tags");
-    console.log(tags);
+    console.log("tags from api ",tags);
     try {
       await connectToDB();
       
       const fetchedData = await Data.find({ tags : tags });
-      console.log(fetchedData);
+      console.log("It's the fetched data ",fetchedData);
       
       
   
