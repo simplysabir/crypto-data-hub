@@ -50,8 +50,8 @@ const Hero = () => {
           Search
         </Button>
       </div>
-
-      <div className="mt-10">
+      <div className="mt-5">
+      <div>
         {searchedData.map((data : searchDataType) => (
           <div className="mt-4 mb-4" key={data._id}> 
           <Alert>
@@ -59,18 +59,24 @@ const Hero = () => {
           <AlertDescription>
             {data.description}
           </AlertDescription>
+
+          <div className="w-full flex justify-between gap-7">
           <AlertTitle>
             rating : {data.ratings} / 5
           </AlertTitle>
 
-          <AlertDescription>
+          <AlertTitle>
             tags : {data.tags}
-          </AlertDescription>
+          </AlertTitle>
+          </div>
         </Alert>
+        
         </div>
         ))}
             
       </div>
+      </div>
+
     </div>
   );
 };

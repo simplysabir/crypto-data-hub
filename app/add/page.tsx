@@ -30,30 +30,40 @@ const Add = () => {
   }
 
   return (
-    <div className="flex w-full justify-center items-center mt-20">
+    <div className="flex w-full justify-center flex-col gap-4 items-center mt-20">
       <div className="flex w-full max-w-sm items-center space-x-2">
         <Input
           type="email"
           placeholder="Source URL"
           onChange={(e : any) => setSource(e.target.value)}
         />
+      </div>
+      <div className="flex w-full max-w-sm items-center space-x-2">
         <Input
           type="email"
           placeholder="Tags"
           onChange={(e : any) => setTags(e.target.value)}
         />
+        </div>
+        <div className="flex w-full max-w-sm items-center space-x-2">
+
         <Input
           type="email"
           placeholder="Source Description"
           onChange={(e : any) => setDescription(e.target.value)}
         />
+        </div>
+        <div className="flex w-full max-w-sm items-center space-x-2">
+
         <Input
           type="email"
           placeholder="Rating (1 - 5 )"
           onChange={(e : any) => setRatings(e.target.value)}
         />
+        </div>
+        <div>
         <Button type="submit" onClick={handleSubmit}>
-          Search
+          Add
         </Button>
       </div>
     </div>
