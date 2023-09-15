@@ -4,10 +4,12 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import axios from "axios";
+import Link from "next/link";
 
 type searchDataType = {
   _id: string;
   source: string;
+  link : string;
   tags: [string];
   description: string;
   ratings: number;
@@ -55,7 +57,9 @@ const Hero = () => {
             searchedData.map((data: searchDataType) => (
               <div className="mt-4 mb-4" key={data._id}>
                 <Alert>
+                <Link href={data.link} target="_blank">
                   <AlertTitle>{data.source}</AlertTitle>
+                  </Link>
                   <AlertDescription>{data.description}</AlertDescription>
 
                   <div className="w-full flex justify-between gap-7">

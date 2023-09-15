@@ -4,6 +4,10 @@ const DataSchema = new Schema({
         type : String,
         required : true,
     },
+    link : {
+        type : String,
+        required : true,
+    },
     tags: {
         type: [String],  // Use [String] instead of Array<String>
         enum: ['DAO & Governance', 'NFT', 'DeFi', 'Macro', 'Metaverse', 'On-Chain', 'Other', 'dApps', 'Token', 'Fundraise', 'Airdrop', 'Chain', 'GameFi'], // List allowed values directly as strings
