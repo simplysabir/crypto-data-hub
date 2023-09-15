@@ -1,6 +1,7 @@
 import { connectToDB } from '../../../utils/database';
 import Data from '../../../model/data';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest } from 'next/server';
 
 export const POST = async (req : Request, res : Response) => {
     const body = await req.json();
@@ -22,7 +23,7 @@ export const POST = async (req : Request, res : Response) => {
       return new Response("Failed to add Data to Database", { status: 500 });
     }
 };
-export const GET = async (req : NextApiRequest, res : NextApiResponse) => {
+export const GET = async (req : Request | NextRequest, res : NextApiResponse) => {
     console.log(req.url);
     const url = req.url;
     const mainUrl : URL = new URL(url);
