@@ -20,7 +20,7 @@ const Hero = () => {
   const [searchedData, setSearchedData] = useState([]);
   async function handleSubmit(e: any) {
     e.preventDefault();
-    console.log(keyword);
+    // console.log(keyword);
     // const queryParams = new URLSearchParams({
     //   tags: keyword,
     // });
@@ -29,7 +29,7 @@ const Hero = () => {
     });
     // const data = await response.json();
     const data = response.data;
-    console.log(response.data);
+    // console.log(response.data);
     setSearchedData(data);
     if (response.status === 201) {
       console.log("fetched succesfully");
