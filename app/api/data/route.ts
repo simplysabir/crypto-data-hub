@@ -30,10 +30,14 @@ export const GET = async (req : Request | NextRequest, res : NextApiResponse) =>
     const searchParams = mainUrl.searchParams;
     const tags = searchParams.get("tags");
     console.log("tags from api ",tags);
-    try {
+    let lowercaseTags
+    if (tags) {
+      lowercaseTags = tags.replace(/[A-Z]/g, match => match.toLowerCase());
+      console.log("Lowercase tags: ", lowercaseTags);
+    }    try {
       await connectToDB();
       
-      const fetchedData = await Data.find({ tags : tags });
+      const fetchedData = await Data.find({ tags : lowercaseTags });
       console.log("It's the fetched data ",fetchedData);
       
       
