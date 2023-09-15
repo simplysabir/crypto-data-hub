@@ -5,15 +5,15 @@ import { Button } from "@/components/ui/button"
 const routes = [
     {
         href: "/",
-        label: "Products",
+        label: "Home",
     },
     {
         href: "/",
-        label: "Products",
+        label: "Search",
     },
     {
         href: "/",
-        label: "Products",
+        label: "Login",
     },
 ]
 const Header = () => {
