@@ -57,7 +57,7 @@ const Hero = () => {
       <div className="mt-9 w-full px-10 flex items-center justify-center">
   <div className="flex flex-wrap justify-center">
     {avaialableTags.map((tags) => (
-      <span key={tags} className="bg-opacity-50 bg-gray-100 text-black-800 rounded-full px-4 py-2 m-1">{tags}</span>
+      <span key={tags} className="bg-opacity-50 bg-gray-100 text-black-800 rounded-full px-4 py-2 m-1 text-xs">{tags}</span>
     ))}
   </div>
 </div>
@@ -69,10 +69,10 @@ const Hero = () => {
             <p>Nothing to show</p>
           ) : (
             searchedData.map((data: searchDataType) => (
-              <div className="mt-4 mb-4" key={data._id}>
+              <div className="mt-4 mb-4 w-80" key={data._id}>
                 <Alert>
                 <Link href={data.link} target="_blank">
-                  <AlertTitle>{data.source}</AlertTitle>
+                  <AlertTitle className="font-bold">{data.source}</AlertTitle>
                   </Link>
                   <AlertDescription>{data.description}</AlertDescription>
 
