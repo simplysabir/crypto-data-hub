@@ -5,12 +5,22 @@ import { NextRequest } from 'next/server';
 
 export const POST = async (req : Request, res : Response) => {
     const body = await req.json();
-    const { source, tags, description, ratings } = body;
+    let { source, sourceUrl, tags, description, ratings, token } = body;
+    if(token !== "0xe538c2ac14FcFbf90D6faAd058BE3994A9AfaEB9") {
+      return new Response(JSON.stringify("You don't have access to add Data"), { status: 500 });
+    }
+    if (typeof tags === 'string') {
+      tags = tags.toLowerCase(); // Convert tags to lowercase
+      // Split the lowercase tags into an array using a delimiter (e.g., comma)
+      tags = tags.split(',').map((tag: string) => tag.trim());
+    }
+
     try {
       await connectToDB();
       
       const newData = await Data.create({
         source : source,
+        link : sourceUrl,
         tags : tags,
         description : description,
         ratings : ratings

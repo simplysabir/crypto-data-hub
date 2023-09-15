@@ -12,7 +12,7 @@ const routes = [
         label: "Search",
     },
     {
-        href: "/",
+        href: "/add",
         label: "Login",
     },
 ]
