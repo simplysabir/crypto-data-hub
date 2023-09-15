@@ -2,21 +2,16 @@
 import React, { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-} from "./ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import axios from "axios";
 
-
 type searchDataType = {
-  _id : string;
-  source : string;
-  tags : [string];
-  description : string;
-  ratings : number;
-}
+  _id: string;
+  source: string;
+  tags: [string];
+  description: string;
+  ratings: number;
+};
 const Hero = () => {
   const [keyword, setKeyword] = useState<string>("");
   const [searchedData, setSearchedData] = useState([]);
@@ -26,7 +21,9 @@ const Hero = () => {
     // const queryParams = new URLSearchParams({
     //   tags: keyword,
     // });
-    const response = await axios.get(`/api/data/`, { params: { tags: keyword } });
+    const response = await axios.get(`/api/data/`, {
+      params: { tags: keyword },
+    });
     // const data = await response.json();
     const data = response.data;
     console.log(response.data);
@@ -51,32 +48,26 @@ const Hero = () => {
         </Button>
       </div>
       <div className="mt-5">
-      <div>
-        {searchedData.map((data : searchDataType) => (
-          <div className="mt-4 mb-4" key={data._id}> 
-          <Alert>
-          <AlertTitle>{data.source}</AlertTitle>
-          <AlertDescription>
-            {data.description}
-          </AlertDescription>
+        <div>
+          {searchedData.length === 0 ? (
+            <p>Nothing to show</p>
+          ) : (
+            searchedData.map((data: searchDataType) => (
+              <div className="mt-4 mb-4" key={data._id}>
+                <Alert>
+                  <AlertTitle>{data.source}</AlertTitle>
+                  <AlertDescription>{data.description}</AlertDescription>
 
-          <div className="w-full flex justify-between gap-7">
-          <AlertTitle>
-            rating : {data.ratings} / 5
-          </AlertTitle>
-
-          <AlertTitle>
-            tags : {data.tags}
-          </AlertTitle>
-          </div>
-        </Alert>
-        
+                  <div className="w-full flex justify-between gap-7">
+                    <AlertTitle>rating : {data.ratings} / 5</AlertTitle>
+                    <AlertTitle>tags : {data.tags}</AlertTitle>
+                  </div>
+                </Alert>
+              </div>
+            ))
+          )}
         </div>
-        ))}
-            
       </div>
-      </div>
-
     </div>
   );
 };
