@@ -14,6 +14,7 @@ type searchDataType = {
   description: string;
   ratings: number;
 };
+const avaialableTags = ['DAO & Governance', 'NFT', 'DeFi', 'Macro', 'Metaverse', 'On-Chain', 'Other', 'dApps', 'Token', 'Fundraise', 'Airdrop', 'Chain', 'GameFi', 'Analytics'];
 const Hero = () => {
   const [keyword, setKeyword] = useState<string>("");
   const [searchedData, setSearchedData] = useState([]);
@@ -39,6 +40,7 @@ const Hero = () => {
   }
   return (
     <div className="flex w-full justify-center flex-col items-center mt-20">
+      <form onSubmit={handleSubmit}>
       <div className="flex w-full max-w-sm items-center space-x-2">
         <Input
           type="email"
@@ -48,7 +50,19 @@ const Hero = () => {
         <Button type="submit" onClick={handleSubmit}>
           Search
         </Button>
+
+        
       </div>
+      </form>
+      <div className="mt-9 w-full px-10 flex items-center justify-center">
+  <div className="flex flex-wrap justify-center">
+    {avaialableTags.map((tags) => (
+      <span key={tags} className="bg-opacity-50 bg-gray-100 text-black-800 rounded-full px-4 py-2 m-1">{tags}</span>
+    ))}
+  </div>
+</div>
+
+
       <div className="mt-5">
         <div>
           {searchedData.length === 0 ? (
