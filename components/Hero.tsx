@@ -78,7 +78,7 @@ const Hero = () => {
 
                   <div className="w-full flex justify-between gap-7 mt-3">
                     <AlertTitle>rating : {data.ratings} / 5</AlertTitle>
-                    <AlertTitle>tags : <span className="bg-opacity-50 bg-gray-100 text-black-800 rounded-full px-4 py-2 m-1 text-xs">{data.tags}</span></AlertTitle>
+                    <AlertTitle>tags : <span className="bg-opacity-50 bg-gray-100 text-black-800 rounded-full px-4 py-2 m-1 text-xs">#{data.tags}</span></AlertTitle>
                   </div>
                 </Alert>
               </div>
