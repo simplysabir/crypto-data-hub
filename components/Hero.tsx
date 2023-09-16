@@ -40,7 +40,7 @@ const Hero = () => {
   }
   return (
     <div className="flex w-full justify-center flex-col items-center mt-20">
-      <form onSubmit={handleSubmit} className="flex w-full justify-center flex-col items-center">
+      <form onSubmit={handleSubmit} className="flex w-full justify-center flex-col items-center px-2">
       <div className="flex w-full max-w-sm items-center space-x-2">
         <Input
           type="email"
